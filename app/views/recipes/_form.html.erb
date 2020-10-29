@@ -1,0 +1,25 @@
+<%= form_with model: recipe, local: true do |f|%>
+  <div class="field">
+    <%= f.label :title, "料理名" %><br />
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :text, "説明文" %><br />
+    <%= f.text_area :text, class: :form__text %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image, "プロトタイプの画像" %><br />
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :video, "Youtube URL" %><br />
+    <%= f.text_field :video %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "投稿", class: :form__btn  %>
+  </div>
+<% end %>

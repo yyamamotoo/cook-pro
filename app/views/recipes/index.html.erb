@@ -1,2 +1,15 @@
-<h1>Recipes#index</h1>
-<p>Find me in app/views/recipes/index.html.erb</p>
+<main class="main">
+  <div class="inner">
+    <%# ログインしているときは以下を表示する %>
+    <% if user_signed_in? %>
+      <div class="greeting">
+        <%= link_to "#{current_user.name}さん", class: :greeting__link%>
+        今日は何を作りましょう？
+      </div>
+      <% end %>
+    <%# // ログインしているときは上記を表示する %>
+    <div class="card__wrapper">
+      <%= render partial: 'recipe', collection: @recipes %>
+    </div>
+  </div>
+</main>
