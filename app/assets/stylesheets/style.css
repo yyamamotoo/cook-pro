@@ -269,6 +269,10 @@ a {
   justify-content: space-between;
   align-items: center;
 }
+.login-flash-message {
+  text-align: center;
+  color: red;
+}
 /* フッター */
 
 .footer {
