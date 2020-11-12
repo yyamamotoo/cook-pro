@@ -1,0 +1,2 @@
+class ProRecipe < ApplicationRecord
+end

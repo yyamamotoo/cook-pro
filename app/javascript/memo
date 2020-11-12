@@ -1,0 +1,10 @@
+var i = 1 ;
+addForm = function addForm() {
+  var input_data = document.createElement('div');
+  input_data.type = 'text';
+  input_data.id = 'cook_' + i;
+  input_data.placeholder = '作り方-' + i;
+  var parent = document.getElementById('cook_form');
+  parent.appendChild(input_data);
+  i++ ;
+}

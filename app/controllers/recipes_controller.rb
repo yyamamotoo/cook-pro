@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.order(updated_at: :desc).limit(5)
   end
 
   def new
@@ -13,8 +13,7 @@ class RecipesController < ApplicationController
     url = url.last(11)
     @recipe.video = url
 
-    if @recipe.valid?
-      @recipe.save
+    if @recipe.save
       redirect_to root_path
     else
       render :new
@@ -28,6 +27,9 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:video, :title, :text, :image).merge(user_id: current_user.id)
+    params.require(:recipe).permit(:video, :title, :text, :image,
+                                   :cook_1, :cook_2, :cook_3, :cook_4, :cook_5, :cook_6, :cook_7, :cook_8, :cook_9, :cook_10,
+                                   :vegetable_1, :vegetable_2, :vegetable_3, :vegetable_4, :vegetable_5, :vegetable_6, :vegetable_7, :vegetable_8, :vegetable_9, :vegetable_10,
+                                   :food_1, :food_2, :food_3, :food_4, :food_5, :food_6, :food_7, :food_8, :food_9, :food_10).merge(user_id: current_user.id)
   end
 end
