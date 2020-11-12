@@ -22,8 +22,81 @@
         </div>
       </div>
       <p>
+      <div class="tube">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @recipe.video %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="zairyou">
+        <p class="detail__title">材料</p>
+        <div class="zai">
+        <p class="detail__message">
+            <%= @recipe.vegetable_1 %> <br />
+             <%= @recipe.vegetable_2 %><br />
+             <%= @recipe.vegetable_3 %><br />
+             <%= @recipe.vegetable_4 %><br />
+             <%= @recipe.vegetable_5 %><br />
+             <%= @recipe.vegetable_6 %><br />
+             <%= @recipe.vegetable_7 %><br />
+             <%= @recipe.vegetable_8 %><br />
+             <%= @recipe.vegetable_9 %><br />
+             <%= @recipe.vegetable_10 %>
+          </p>
+          <div class="suuryou">
+          <%= @recipe.food_1 %><br />
+          <%= @recipe.food_2 %><br />
+          <%= @recipe.food_3 %><br />
+          <%= @recipe.food_4 %><br />
+          <%= @recipe.food_5 %><br />
+          <%= @recipe.food_6 %><br />
+          <%= @recipe.food_7 %><br />
+          <%= @recipe.food_8 %><br />
+          <%= @recipe.food_9 %><br />
+          <%= @recipe.food_10 %>
+          </div>
+          </div>
+            
+          </div>
+        </div>
       </p>
+      <div class="recipe_body">
+        <div class="recipe_detail">
+          <p class="detail__title">作り方</p>
+          <p class="detail__message">
+          <div class="zai-matome">
+            
+            <% if @recipe.cook_1 != ""%>
+            <div class="aida"><div class="suuji">1.</div><%= @recipe.cook_1 %></div><br />
+            <% end %>
+            <% if @recipe.cook_2 != ""%>
+            <div class="aida"><div class="suuji">2.</div><%= @recipe.cook_2 %></div><br />
+            <% end %>
+            <% if @recipe.cook_3 != ""%>
+            <div class="aida"><div class="suuji">3.</div><%= @recipe.cook_3 %></div><br />
+            <% end %>
+            <% if @recipe.cook_4 != ""%>
+            <div class="aida"><div class="suuji">4.</div><%= @recipe.cook_4 %></div><br />
+            <% end %>
+            <% if @recipe.cook_5 != ""%>
+            <div class="aida"><div class="suuji">5.</div><%= @recipe.cook_5 %></div><br />
+            <% end %>
+            <% if @recipe.cook_6 != ""%>
+            <div class="aida"><div class="suuji">6.</div><%= @recipe.cook_6 %></div><br />
+            <% end %>
+            <% if @recipe.cook_7 != ""%>
+            <div class="aida"><div class="suuji">7.</div><%= @recipe.cook_7 %></div><br />
+            <% end %>
+            <% if @recipe.cook_8 != ""%>
+            <div class="aida"><div class="suuji">8.</div><%= @recipe.cook_8 %></div><br />
+            <% end %>
+            <% if @recipe.cook_9 != ""%>
+            <div class="aida"><div class="suuji">9.</div><%= @recipe.cook_9 %></div><br />
+            <% end %>
+            <% if @recipe.cook_10 != ""%>
+            <div class="aida"><div class="suuji">10.</div><%= @recipe.cook_10 %></div>
+            <% end %>
+            
+          </div>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </main>

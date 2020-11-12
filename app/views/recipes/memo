@@ -1,0 +1,17 @@
+<%= f.text_area :cook_1, class: :form__text %><br />
+    <%= f.text_area :cook_2, class: :form__text %><br />
+    <%= f.text_area :cook_3, class: :form__text %><br />
+    <%= f.text_area :cook_4, class: :form__text %><br />
+    <%= f.text_area :cook_5, class: :form__text %><br />
+    <%= f.text_area :cook_6, class: :form__text %><br />
+    <%= f.text_area :cook_7, class: :form__text %><br />
+    <%= f.text_area :cook_8, class: :form__text %><br />
+    <%= f.text_area :cook_9, class: :form__text %><br />
+    <%= f.text_area :cook_10, class: :form__text %>
+
+
+    <div class="field">
+    <%= f.label :cook_1, "作り方" %>
+    <%= f.text_area :cook_1, id: :cook_0, class: :form__text %>
+  </div>
+<input type="button" value="フォーム追加" id="cook_form" >

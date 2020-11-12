@@ -3,13 +3,14 @@
     <%# ログインしているときは以下を表示する %>
     <% if user_signed_in? %>
       <div class="greeting">
-        <%= link_to "#{current_user.name}さん", class: :greeting__link%>
-        今日は何を作りましょう？
+        <%= link_to "#{current_user.name}さん、今日は何を作りましょう？", class: :greeting__link%>
       </div>
       <% end %>
     <%# // ログインしているときは上記を表示する %>
+    <h1>簡単レシピ</h1>
     <div class="card__wrapper">
       <%= render partial: 'recipe', collection: @recipes %>
     </div>
+    
   </div>
 </main>
