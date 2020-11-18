@@ -65,3 +65,9 @@ gem "pry-rails"
 gem "active_hash"
 
 gem "ransack"
+
+gem "aws-sdk-s3", require: false
+
+group :production do
+  gem "rails_12factor"
+end
