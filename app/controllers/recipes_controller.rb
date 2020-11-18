@@ -41,6 +41,9 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find(params[:id])
+    url = params[:recipe][:video]
+    url = url.last(11)
+    @recipe.video = url
     if @recipe.update(recipe_params)
       redirect_to recipe_path(@recipe)
     else
