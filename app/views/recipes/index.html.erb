@@ -1,5 +1,13 @@
 <main class="main">
+
   <div class="inner">
+  <%= search_form_for @p, url: recipes_search_path, class: "search-form" do |f| %>
+            <% f.label :title %>
+            <%= f.search_field :title_cont, placeholder: "レシピを検索する", class: "search-input" %>
+            <% f.label :name_eq, 'ジャンル' %>
+            <%= f.collection_select :genre_id_eq, Genre.all, :id, :name,  include_blank: '指定なし' %>
+               <%= f.submit '検索', class: "search-btn" %>
+              <% end %>
     <%# ログインしているときは以下を表示する %>
     <% if user_signed_in? %>
       <div class="greeting">
@@ -7,7 +15,7 @@
       </div>
       <% end %>
     <%# // ログインしているときは上記を表示する %>
-    <h1>簡単レシピ</h1>
+    <h1>レシピ</h1>
     <div class="card__wrapper">
       <%= render partial: 'recipe', collection: @recipes %>
     </div>

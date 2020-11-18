@@ -1,0 +1,41 @@
+class CookPro
+  include ActiveModel::Model
+  attr_accessor :video, :title, :text, :image,
+                :cook_1, :cook_2, :cook_3, :cook_4, :cook_5, :cook_6, :cook_7, :cook_8, :cook_9, :cook_10,
+                :vegetable_1, :vegetable_2, :vegetable_3, :vegetable_4, :vegetable_5, :vegetable_6, :vegetable_7, :vegetable_8, :vegetable_9, :vegetable_10,
+                :food_1, :food_2, :food_3, :food_4, :food_5, :food_6, :food_7, :food_8, :food_9, :food_10,
+                :pro_video, :pro_title, :pro_text, :pro_image,
+                :pro_cook_1, :pro_cook_2, :pro_cook_3, :pro_cook_4, :pro_cook_5, :pro_cook_6, :pro_cook_7, :pro_cook_8, :pro_cook_9, :pro_cook_10,
+                :pro_vegetable_1, :pro_vegetable_2, :pro_vegetable_3, :pro_vegetable_4, :pro_vegetable_5, :pro_vegetable_6, :pro_vegetable_7, :pro_vegetable_8, :pro_vegetable_9, :pro_vegetable_10,
+                :pro_food_1, :pro_food_2, :pro_food_3, :pro_food_4, :pro_food_5, :pro_food_6, :pro_food_7, :pro_food_8, :pro_food_9, :pro_food_10
+
+  with_options presence: true do
+    validates :video
+    validates :title
+    validates :text
+    validates :image
+    validates :cook_1
+    validates :vegetable_1
+    validates :food_1
+    validates :pro_video
+    validates :pro_title
+    validates :pro_text
+    validates :pro_image
+    validates :pro_cook_1
+    validates :pro_vegetable_1
+    validates :pro_food_1
+  end
+
+  def save
+    
+    Recipe.create(user_id: user_id, :video video, :title title, :text text, :image image,
+    :cook_1 cook_1, :cook_2 cook_2, :cook_3 cook_3, :cook_4 cook_4, :cook_5 cook_5, :cook_6 cook_6, :cook_7 cook_7, :cook_8 cook_8, :cook_9 cook_9, :cook_10 cook_10,
+    :vegetable_1 vegetable_1, :vegetable_2 vegetable_2, :vegetable_3 vegetable_3, :vegetable_4 vegetable_4, :vegetable_5 vegetable_5, :vegetable_6 vegetable_6, :vegetable_7 vegetable_7, :vegetable_8 vegetable_8, :vegetable_9 vegetable_9, :vegetable_10 vegetable_10,
+    :food_1 food_1, :food_2 food_2, :food_3 food_3, :food_4 food_4, :food_5 food_5, :food_6 food_6, :food_7 food_7, :food_8 food_8, :food_9 food_9, :food_10 food_10)
+    
+    ProRecipe.create(user_id: user_id, :pro_video pro_video, :pro_title pro_title, :pro_text pro_text, :pro_image pro_image,
+    :pro_cook_1 pro_cook_1, :pro_cook_2 pro_cook_2, :pro_cook_3 pro_cook_3, :pro_cook_4 pro_cook_4, :pro_cook_5 pro_cook_5, :pro_cook_6 pro_cook_6, :pro_cook_7 pro_cook_7, :pro_cook_8 pro_cook_8, :pro_cook_9 pro_cook_9, :pro_cook_10 pro_cook_10,
+    :pro_vegetable_1 pro_vegetable_1, :pro_vegetable_2 pro_vegetable_2, :pro_vegetable_3 pro_vegetable_3, :pro_vegetable_4 pro_vegetable_4, :pro_vegetable_5 pro_vegetable_5, :pro_vegetable_6 pro_vegetable_6, :pro_vegetable_7 pro_vegetable_7, :pro_vegetable_8 pro_vegetable_8, :pro_vegetable_9 pro_vegetable_9, :pro_vegetable_10 pro_vegetable_10,
+    :pro_food_1 pro_food_1, :pro_food_2 pro_food_2, :pro_food_3 pro_food_3, :fpro_ood_4 pro_food_4, :pro_food_5 pro_food_5, :pro_food_6 pro_food_6, :pro_food_7 pro_food_7, :pro_food_8 pro_food_8, :pro_food_9 pro_food_9, :pro_food_10 pro_food_10, recipe_id: recipe.id)
+  end
+end

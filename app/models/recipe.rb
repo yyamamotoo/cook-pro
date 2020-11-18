@@ -1,6 +1,10 @@
 class Recipe < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :genre
+
   belongs_to :user
   has_one_attached :image
+  has_many :comments
 
   with_options presence: true do
     validates :video
@@ -11,6 +15,7 @@ class Recipe < ApplicationRecord
     validates :vegetable_1
     validates :food_1
   end
+  validates :genre_id, numericality: { other_than: 1 }
 
   validate :cook_2
   validate :cook_3

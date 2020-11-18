@@ -13,4 +13,6 @@ class User < ApplicationRecord
                        format: { with: /\A(?=.*?[a-z])(?=.*?[\d])\w{6,12}\z/, message: "は英数字を含む6文字以上を入力して下さい" }
 
   has_many :recipes
+  has_many :comments
+
 end

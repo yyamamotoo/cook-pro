@@ -4,6 +4,7 @@ class CreateRecipes < ActiveRecord::Migration[6.0]
       t.string :video, null: false
       t.string :title, null: false
       t.text :text, null: false
+      t.integer :genre_id, null: false
 
       t.text :vegetable_1, null: false
       t.text :vegetable_2

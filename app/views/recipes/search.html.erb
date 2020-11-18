@@ -1,0 +1,31 @@
+<main class="main">
+
+  <div class="inner">
+
+<h1>
+  検索結果
+</h1>
+
+<%# 検索結果の個数で条件分岐 %>
+<div class="card__wrapper">
+<% if @results.length !=0 %>
+  <% @results.each do |result| %>
+    <td>
+    <br>
+    <li>
+      <div class="card">
+        <%= link_to image_tag(result.image, class: :card__img), recipe_path(result.id) %>
+          <div class="card__body">
+            <%= link_to result.title, recipe_path(result.id), class: :card__title %>
+          </div>
+      </div>
+    </li>
+  <% end %>
+<% else %>
+  該当する商品はありません
+<% end %>
+<br>
+</div>
+<%= link_to 'トップページへ戻る', root_path %>
+</div>
+</main>

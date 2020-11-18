@@ -1,0 +1,47 @@
+class CreateProRecipes < ActiveRecord::Migration[6.0]
+  def change
+    create_table :pro_recipes do |t|
+      t.string :pro_video, null: false
+      t.string :pro_title, null: false
+      t.text :pro_text, null: false
+
+      t.text :pro_vegetable_1, null: false
+      t.text :pro_vegetable_2
+      t.text :pro_vegetable_3
+      t.text :pro_vegetable_4
+      t.text :pro_vegetable_5
+      t.text :pro_vegetable_6
+      t.text :pro_vegetable_7
+      t.text :pro_vegetable_8
+      t.text :pro_vegetable_9
+      t.text :pro_vegetable_10
+
+      t.text :pro_cook_1, null: false
+      t.text :pro_cook_2
+      t.text :pro_cook_3
+      t.text :pro_cook_4
+      t.text :pro_cook_5
+      t.text :pro_cook_6
+      t.text :pro_cook_7
+      t.text :pro_cook_8
+      t.text :pro_cook_9
+      t.text :pro_cook_10
+
+      t.text :pro_food_1, null: false
+      t.text :pro_food_2
+      t.text :pro_food_3
+      t.text :pro_food_4
+      t.text :pro_food_5
+      t.text :pro_food_6
+      t.text :pro_food_7
+      t.text :pro_food_8
+      t.text :pro_food_9
+      t.text :pro_food_10
+
+      t.references :user, foreign_key: true
+      t.references :recipe, foreign_key: true
+
+      t.timestamps
+    end
+  end
+end

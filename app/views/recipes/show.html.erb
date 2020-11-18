@@ -4,7 +4,7 @@
       <p class="prototype__hedding">
         <%= @recipe.title %>
       </p>
-      <% if current_user == @recipe.user %>
+      <% if current_user.admin? %>
         <div class="prototype__manage">
           <%= link_to "編集する", edit_recipe_path, class: :prototype__btn %>
           <%= link_to "削除する", recipe_path, method: :delete, class: :prototype__btn %>
@@ -97,6 +97,36 @@
           </p>
         </div>
       </div>
+      <div class="container">
+    <% if current_user %>
+      <%= form_with(model: [@recipe, @comment], local: true) do |form| %>
+        <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+        <%= form.submit "SEND" %>
+      <% end %>
+    <% else %>
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+    <% end %>
+    <div class="comments">
+     <div class="comment_all">
+      <h4>＜コメント一覧＞</h4>
+      
+      <% if @comments %>
+        <% @comments.each do |comment| %>
+        <% if comment.user.admin? %>
+          <p>
+            <strong class="adcome"><%=  comment.user.name %>：</strong>
+            <%= comment.text %>
+          </p>
+          <% else %>
+          <p>
+            <strong class="come"><%= comment.user.name %>：</strong>
+            <%= comment.text %>
+          </p>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
     </div>
   </div>
 </main>
