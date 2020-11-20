@@ -4,11 +4,13 @@
       <p class="prototype__hedding">
         <%= @recipe.title %>
       </p>
+      <% if user_signed_in? %>
       <% if current_user.admin? %>
         <div class="prototype__manage">
           <%= link_to "編集する", edit_recipe_path, class: :prototype__btn %>
           <%= link_to "削除する", recipe_path, method: :delete, class: :prototype__btn %>
         </div>
+      <% end %>
       <% end %>
       <div class="prototype__image">
         <%= image_tag @recipe.image %>
