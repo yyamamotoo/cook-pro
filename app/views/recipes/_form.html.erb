@@ -16,53 +16,26 @@
 
     
     
-  <div class="field-vege">
-   <div class="vege">
-    <%= f.label :vegetable_1, "材料" %><br />
-    <%= f.text_field :vegetable_1 %><br />
-    <%= f.text_field :vegetable_2 %><br />
-    <%= f.text_field :vegetable_3 %><br />
-    <%= f.text_field :vegetable_4 %><br />
-    <%= f.text_field :vegetable_5 %><br />
-    <%= f.text_field :vegetable_6 %><br />
-    <%= f.text_field :vegetable_7 %><br />
-    <%= f.text_field :vegetable_8 %><br />
-    <%= f.text_field :vegetable_9 %><br />
-    <%= f.text_field :vegetable_10 %>
-    </div>
-
-    <div class="vege">
-    <%= f.label :food_1, "量" %><br />
-    <%= f.text_field :food_1 %><br />
-    <%= f.text_field :food_2 %><br />
-    <%= f.text_field :food_3 %><br />
-    <%= f.text_field :food_4 %><br />
-    <%= f.text_field :food_5 %><br />
-    <%= f.text_field :food_6 %><br />
-    <%= f.text_field :food_7 %><br />
-    <%= f.text_field :food_8 %><br />
-    <%= f.text_field :food_9 %><br />
-    <%= f.text_field :food_10 %>
-    </div>
-
-    <div class="form_cook">
-    <%= f.label :cook_1, "作り方" %><br />
-    <%= f.text_area :cook_1, class: :form__text %><br />
-    <%= f.text_area :cook_2, class: :form__text %><br />
-    <%= f.text_area :cook_3, class: :form__text %><br />
-    <%= f.text_area :cook_4, class: :form__text %><br />
-    <%= f.text_area :cook_5, class: :form__text %><br />
-    <%= f.text_area :cook_6, class: :form__text %><br />
-    <%= f.text_area :cook_7, class: :form__text %><br />
-    <%= f.text_area :cook_8, class: :form__text %><br />
-    <%= f.text_area :cook_9, class: :form__text %><br />
-    <%= f.text_area :cook_10, class: :form__text %>
-    </div>
+  <div class="form-group">
+    <table>
+      <%= f.fields_for :materials do |detail| %>
+        <%= render 'recipe_item_fields', f: detail %>
+      <% end %>
+    </table>
+    <%= link_to_add_association '行を追加', f, :materials, partial: 'recipe_item_fields' %>
   </div>
 
-  <div class="field">
     
+    <div class="form-group">
+    <table>
+      <%= f.fields_for :chefs do |deta| %>
+        <%= render 'chef_item_fields', f: deta %>
+      <% end %>
+    </table>
+    <%= link_to_add_association '行を追加', f, :chefs, partial: 'chef_item_fields' %>
   </div>
+  
+
 
   <div class="field">
     <%= f.label :image, "料理の画像" %><br />

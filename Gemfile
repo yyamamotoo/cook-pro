@@ -71,3 +71,11 @@ gem "aws-sdk-s3", require: false
 group :production do
   gem "rails_12factor"
 end
+
+gem "cocoon"
+
+gem "jquery-rails"
+
+group :development do
+  gem "rubocop", require: false
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_18_015532) do
+ActiveRecord::Schema.define(version: 2020_12_02_042227) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(version: 2020_11_18_015532) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "chefs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "cook", null: false
+    t.bigint "recipe_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recipe_id"], name: "index_chefs_on_recipe_id"
+  end
+
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
     t.integer "recipe_id"
@@ -41,41 +49,20 @@ ActiveRecord::Schema.define(version: 2020_11_18_015532) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "materials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "vegetable", null: false
+    t.text "amount", null: false
+    t.bigint "recipe_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recipe_id"], name: "index_materials_on_recipe_id"
+  end
+
   create_table "recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "video", null: false
     t.string "title", null: false
     t.text "text", null: false
     t.integer "genre_id", null: false
-    t.text "vegetable_1", null: false
-    t.text "vegetable_2"
-    t.text "vegetable_3"
-    t.text "vegetable_4"
-    t.text "vegetable_5"
-    t.text "vegetable_6"
-    t.text "vegetable_7"
-    t.text "vegetable_8"
-    t.text "vegetable_9"
-    t.text "vegetable_10"
-    t.text "cook_1", null: false
-    t.text "cook_2"
-    t.text "cook_3"
-    t.text "cook_4"
-    t.text "cook_5"
-    t.text "cook_6"
-    t.text "cook_7"
-    t.text "cook_8"
-    t.text "cook_9"
-    t.text "cook_10"
-    t.text "food_1", null: false
-    t.text "food_2"
-    t.text "food_3"
-    t.text "food_4"
-    t.text "food_5"
-    t.text "food_6"
-    t.text "food_7"
-    t.text "food_8"
-    t.text "food_9"
-    t.text "food_10"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -97,5 +84,7 @@ ActiveRecord::Schema.define(version: 2020_11_18_015532) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "chefs", "recipes"
+  add_foreign_key "materials", "recipes"
   add_foreign_key "recipes", "users"
 end

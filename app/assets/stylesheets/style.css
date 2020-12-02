@@ -265,10 +265,13 @@ img.card__img {
   margin-left: 50px;
 }
 
+.zainoryou{
+  display: flex;
+}
+
 .zai{
   width: 200px;
     height: 300px;
-    display: flex;
     justify-content: space-between;
 }
 
@@ -465,3 +468,12 @@ form input[type="submit"]:hover {
 .comment_all{
   flex-direction: column;
 }
+
+.detail__message{
+  flex-direction: column;
+}
+
+.suuryou{
+  flex-direction: column;
+}
+

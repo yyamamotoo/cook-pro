@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get "recipes/search"
   resources :recipes do
     resources :comments, only: :create
+    resources :materials
+    resources :chefs
     collection do
       get "search"
     end

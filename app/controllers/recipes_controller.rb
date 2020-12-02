@@ -10,6 +10,8 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @recipe.materials.build
+    @recipe.chefs.build
   end
 
   def create
@@ -28,6 +30,8 @@ class RecipesController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @recipe.comments.includes(:user).order(updated_at: :desc)
+    @material = Material.where(recipe_id: params[:id])
+    @chef = Chef.where(recipe_id: params[:id])
     # if @comment.save
     # ActionCable.server.broadcast "comment_channel", content: @comment, name: @comment.user.name
     # end
@@ -65,9 +69,8 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:video, :title, :text, :image, :genre_id,
-                                   :cook_1, :cook_2, :cook_3, :cook_4, :cook_5, :cook_6, :cook_7, :cook_8, :cook_9, :cook_10,
-                                   :vegetable_1, :vegetable_2, :vegetable_3, :vegetable_4, :vegetable_5, :vegetable_6, :vegetable_7, :vegetable_8, :vegetable_9, :vegetable_10,
-                                   :food_1, :food_2, :food_3, :food_4, :food_5, :food_6, :food_7, :food_8, :food_9, :food_10).merge(user_id: current_user.id)
+                                   materials_attributes: [:id, :amount, :vegetable, :_destroy],
+                                   chefs_attributes: [:id, :cook, :_destroy]).merge(user_id: current_user.id)
   end
 
   def search_recipe

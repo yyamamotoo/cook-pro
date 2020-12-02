@@ -176,3 +176,45 @@
     </div>
   </div>
 </div>
+
+cocoonのcook保存用
+<div class="form-group">
+    <table>
+      <%= f.fields_for :chefs do |deta| %>
+        <%= render 'chef_item_fields', f: deta %>
+      <% end %>
+    </table>
+    <%= link_to_add_association '行を追加', f, :chefs, partial: 'chef_item_fields' %>
+  </div>
+
+元cook表示　個人的に覚えていたいだけ
+  <% if @recipe.cook_1 != ""%>
+            <div class="aida"><div class="suuji">1.</div><%= @recipe.cook_1 %></div><br />
+            <% end %>
+            <% if @recipe.cook_2 != ""%>
+            <div class="aida"><div class="suuji">2.</div><%= @recipe.cook_2 %></div><br />
+            <% end %>
+            <% if @recipe.cook_3 != ""%>
+            <div class="aida"><div class="suuji">3.</div><%= @recipe.cook_3 %></div><br />
+            <% end %>
+            <% if @recipe.cook_4 != ""%>
+            <div class="aida"><div class="suuji">4.</div><%= @recipe.cook_4 %></div><br />
+            <% end %>
+            <% if @recipe.cook_5 != ""%>
+            <div class="aida"><div class="suuji">5.</div><%= @recipe.cook_5 %></div><br />
+            <% end %>
+            <% if @recipe.cook_6 != ""%>
+            <div class="aida"><div class="suuji">6.</div><%= @recipe.cook_6 %></div><br />
+            <% end %>
+            <% if @recipe.cook_7 != ""%>
+            <div class="aida"><div class="suuji">7.</div><%= @recipe.cook_7 %></div><br />
+            <% end %>
+            <% if @recipe.cook_8 != ""%>
+            <div class="aida"><div class="suuji">8.</div><%= @recipe.cook_8 %></div><br />
+            <% end %>
+            <% if @recipe.cook_9 != ""%>
+            <div class="aida"><div class="suuji">9.</div><%= @recipe.cook_9 %></div><br />
+            <% end %>
+            <% if @recipe.cook_10 != ""%>
+            <div class="aida"><div class="suuji">10.</div><%= @recipe.cook_10 %></div>
+            <% end %>
