@@ -6,6 +6,7 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.all.order(updated_at: :desc)
+    # set_material_column
   end
 
   def new
@@ -76,6 +77,10 @@ class RecipesController < ApplicationController
   def search_recipe
     @p = Recipe.ransack(params[:q])
   end
+
+  # def set_material_column
+  # @material_vegitable = Material.select("vegetable").distinct
+  # end
 
   def set_recipe
     @recipe = Recipe.find(params[:id])

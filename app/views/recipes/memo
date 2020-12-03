@@ -218,3 +218,7 @@ cocoonのcook保存用
             <% if @recipe.cook_10 != ""%>
             <div class="aida"><div class="suuji">10.</div><%= @recipe.cook_10 %></div>
             <% end %>
+
+ransack Materialの検索（マテリアルのコントローラー作ってそっちで処理しないとあかんかも）
+<%= f.label :vegetable_eq, '材料' %>
+<%= f.collection_select :vegetable_eq, @material_vegitable, :vegetable, :vegetable,  include_blank: '指定なし' %>

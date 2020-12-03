@@ -8,17 +8,21 @@
             <%= f.collection_select :genre_id_eq, Genre.all, :id, :name,  include_blank: '指定なし' %>
                <%= f.submit '検索', class: "search-btn" %>
               <% end %>
-    <%# ログインしているときは以下を表示する %>
+    
     <% if user_signed_in? %>
       <div class="greeting">
         <%= link_to "#{current_user.name}さん、今日は何を作りましょう？", class: :greeting__link%>
       </div>
       <% end %>
-    <%# // ログインしているときは上記を表示する %>
+    
     <h1>レシピ</h1>
     <div class="card__wrapper">
       <%= render partial: 'recipe', collection: @recipes %>
     </div>
+
+            
+              
+            
     
   </div>
 </main>
