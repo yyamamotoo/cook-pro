@@ -51,6 +51,6 @@ production:
   <<: *default
   database: cook_pro_production
   username: root
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  password: yuuya4256
   socket: /var/lib/mysql/mysql.sock
   
