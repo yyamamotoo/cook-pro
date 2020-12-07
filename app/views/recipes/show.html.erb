@@ -33,9 +33,9 @@
               <div class="zai">
         
                 <% @material.each do |material| %>
-                  <p class="detail__message">
+                  <div class="detail__message">
                     <%= material.vegetable %> <br />
-                  </p><br />
+                  </div><br />
                 <% end %>
              </div>
              <div class="zai">
@@ -68,8 +68,8 @@
       <div class="container">
         <% if current_user %>
           <%= form_with(model: [@recipe, @comment], local: true) do |form| %>
-            <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
-            <%= form.submit "SEND" %>
+            <%= form.text_area :text, placeholder: "コメントする", rows: "2", class: "come-form" %>
+            <%= form.submit "SEND", class: "come-sub" %>
           <% end %>
         <% else %>
           <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
@@ -80,12 +80,12 @@
             <% if @comments %>
               <% @comments.each do |comment| %>
                 <% if comment.user.admin? %>
-                  <p>
+                  <p class="comefont">
                     <strong class="adcome"><%=  comment.user.name %>：</strong>
                     <%= comment.text %>
                  </p>
                 <% else %>
-                  <p>
+                  <p class="comefont">
                     <strong class="come"><%= comment.user.name %>：</strong>
                     <%= comment.text %>
                   </p>

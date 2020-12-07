@@ -11,7 +11,7 @@
     
     <% if user_signed_in? %>
       <div class="greeting">
-        <%= link_to "#{current_user.name}さん、今日は何を作りましょう？", class: :greeting__link%>
+        <%= "#{current_user.name}さん、今日は何を作りましょう？" %>
       </div>
       <% end %>
     

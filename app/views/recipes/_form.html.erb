@@ -23,19 +23,19 @@
         <%= render 'recipe_item_fields', f: detail %>
       <% end %>
     </table>
-    <%= link_to_add_association '行を追加', f, :materials, partial: 'recipe_item_fields', class: :form__btn, data: {
+    <%= link_to_add_association '行を追加', f, :materials, partial: 'recipe_item_fields', class: :co_form_btn, data: {
         association_insertion_node: '#detail-association-insertion-point1',
         association_insertion_method: 'append' } %>
   </div>
 
     
     <div class="form-group">
-    <table  id='detail-association-insertion-point2'>
+    <table class="chef-form" id='detail-association-insertion-point2'>
       <%= f.fields_for :chefs do |deta| %>
         <%= render 'chef_item_fields', f: deta %>
       <% end %>
     </table>
-    <%= link_to_add_association '行を追加', f, :chefs, partial: 'chef_item_fields', data: {
+    <%= link_to_add_association '行を追加', f, :chefs, partial: 'chef_item_fields', class: :co_form_btn, data: {
         association_insertion_node: '#detail-association-insertion-point2',
         association_insertion_method: 'append' } %>
   </div>
