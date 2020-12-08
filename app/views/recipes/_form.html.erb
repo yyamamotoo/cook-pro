@@ -1,4 +1,7 @@
 <%= form_with model: recipe, local: true do |f|%>
+
+<%= render 'error_messages', model: f.object %>
+
   <div class="field">
     <%= f.label :title, "料理名" %><br />
     <%= f.text_field :title %>
@@ -30,6 +33,7 @@
 
     
     <div class="form-group">
+    <%= "作り方" %><br />
     <table class="chef-form" id='detail-association-insertion-point2'>
       <%= f.fields_for :chefs do |deta| %>
         <%= render 'chef_item_fields', f: deta %>
@@ -49,7 +53,7 @@
 
   <div class="field">
     <%= f.label :video, "Youtube URL" %><br />
-    <%= f.text_field :video %>
+    <%= f.text_field :video, placeholder: "Youtubeの共有ボタンに表示されるURLを貼り付けて下さい" %>
   </div>
 
   <div class="actions">

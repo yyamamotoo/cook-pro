@@ -3,6 +3,9 @@ ja:
    attributes:
      user:
        name: ユーザー名
-     tweet:
-       text: テキスト
+     recipe:
+       text: 説明文
        image: 画像
+       video: Youtube URL
+       genre_id: ジャンル
+       title: 料理名

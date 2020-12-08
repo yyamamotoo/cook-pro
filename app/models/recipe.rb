@@ -3,10 +3,10 @@ class Recipe < ApplicationRecord
   belongs_to :genre
   belongs_to :user
   has_one_attached :image
-  has_many :comments
-  has_many :materials
+  has_many :comments, dependent: :destroy
+  has_many :materials, dependent: :destroy
   accepts_nested_attributes_for :materials, reject_if: :all_blank, allow_destroy: true
-  has_many :chefs
+  has_many :chefs, dependent: :destroy
   accepts_nested_attributes_for :chefs, reject_if: :all_blank, allow_destroy: true
 
   with_options presence: true do
@@ -15,5 +15,5 @@ class Recipe < ApplicationRecord
     validates :text
     validates :image
   end
-  validates :genre_id, numericality: { other_than: 1 }
+  validates :genre_id, numericality: { other_than: 1, message: 'を選択して下さい' }
 end
